@@ -8,7 +8,6 @@ func TestBinaryInsert(t *testing.T) {
 	binary.insert(3, nil)
 	binary.insert(19, nil)
 	binary.insert(12, nil)
-	binary.printBinary(nil)
 }
 
 

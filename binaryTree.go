@@ -80,19 +80,12 @@ func (l *BinaryTree) search(value int, leaf *BinaryTree) (*BinaryTree){
 	}
 
 	if value < currentLeaf.value {
-		if currentLeaf.leftLeaf.value == value {
-			return currentLeaf.leftLeaf
-		}
-
 		if currentLeaf.leftLeaf == nil {
 			return nil
 		}
 
 		return currentLeaf.search(value, currentLeaf.leftLeaf)
 	} else {
-		if currentLeaf.rightLeaf.value == value {
-			return currentLeaf.rightLeaf
-		}
 		if currentLeaf.rightLeaf == nil {
 			return nil
 		}
