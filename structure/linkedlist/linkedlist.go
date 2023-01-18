@@ -5,36 +5,37 @@ import (
 )
 
 type LinkedList struct {
-	first *LinkedListElem
+	first *Elem
 }
 
-type LinkedListElem struct {
+type Elem struct {
 	value string
-	next  *LinkedListElem
+	next  *Elem
 }
 
 func createLinkedList(firstValue string) *LinkedList {
 	return &LinkedList{
-		first: &LinkedListElem{value: firstValue, next: nil},
+		first: &Elem{value: firstValue, next: nil},
 	}
 }
 
 func (l *LinkedList) add(newValue string) bool {
+	e := Elem{value: newValue, next: nil}
 	if l.first == nil {
-		l.first = &LinkedListElem{value: newValue, next: nil}
+		l.first = &e
 	}
 
 	last := l.first
 	for ; last.next != nil; last = last.next {
 	}
-	last.next = &LinkedListElem{value: newValue, next: nil}
+	last.next = &e
 
 	return true
 }
 
 func (l *LinkedList) insert(newValue string, index int) bool {
 	if index == 1 {
-		l.first = &LinkedListElem{value: newValue, next: l.first}
+		l.first = &Elem{value: newValue, next: l.first}
 		return true
 	}
 
@@ -46,7 +47,7 @@ func (l *LinkedList) insert(newValue string, index int) bool {
 		i++
 	}
 	if i == index {
-		newElement := &LinkedListElem{value: newValue, next: current}
+		newElement := &Elem{value: newValue, next: current}
 		previous.next = newElement
 		return true
 	}
